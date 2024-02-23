@@ -74,3 +74,37 @@ img {
     align-items: center;
 }
 
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.table {
+    width: 100%; 
+    border-collapse: collapse;
+}
+
+
+.thead {
+    background-color: #525252;
+    color: #000000;
+    padding: 8px;
+    border: 1px solid #ddd;
+    justify-content: center;
+    align-items: center;
+    text-align:center;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+
+.td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+table, th, td {
+    border: 1px solid black;
+}

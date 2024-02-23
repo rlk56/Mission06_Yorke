@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Mission06_Yorke.Models
 {
@@ -6,13 +7,21 @@ namespace Mission06_Yorke.Models
     {
         [Key]
         public int MovieID { get; set; }
+        [Required]
         public string Title { get; set; }
-        public int Year { get; set; }
-        public string Director { get; set; }
-        public string Category { get; set; }
-        public string Rating { get; set; }
-        public bool? Edited { get; set; }
-        public string? Lent_To { get; set; }
+        [Required]
+        [Range(1888, int.MaxValue)]
+        public int Year { get; set; } = 1888;
+        public string? Director { get; set; }
+        [ForeignKey("CategoryID")]
+        public int? CategoryID { get; set; }
+        public Category? Category { get; set; }
+        public string? Rating { get; set; }
+        [Required(ErrorMessage = "Please choose whether the movie has been edited")]
+        public bool Edited { get; set; } = true;
+        public string? LentTo { get; set; }
+        [Required(ErrorMessage = "Please choose whether the movie has been copied to Plex")]
+        public bool CopiedToPlex { get; set; } = true;
         [MaxLength (25)]
         public string? Notes { get; set; }
 
